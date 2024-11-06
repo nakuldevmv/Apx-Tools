@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -18,7 +19,7 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="A Tool With Tools">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -27,12 +28,55 @@
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <script id="splash-screen-script">
+    function removeSplashFromWeb() {
+      document.getElementById("splash")?.remove();
+      document.getElementById("splash-branding")?.remove();
+      document.body.style.background = "transparent";
+    }
+  </script>
 
-  <title>apxtools</title>
+  <!-- Include the Flutter web bootstrap script -->
+  <script src="flutter.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <title>ApxTools</title>
   <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      background-color: rgba(0, 0, 0, 0.842);
+    }
+    .loading{
+      color:rgb(255, 255, 255);
+      font-size: 30px;
+      text-align: center; 
+    }
+    .loading:hover
+    {
+      cursor: crosshair;
+      color:red;
+      font-size: 30px;
+      text-align: center; 
+    }
+  </style>
 </head>
+
 <body>
   <script src="flutter_bootstrap.js" async></script>
+  <div id="loadingMessage" class="loading">
+
+  <script>
+    const loadingMessage = document.getElementById('loadingMessage');
+    let dots = 0;
+
+    setInterval(() => {
+      // Cycle through the loading states
+      loadingMessage.innerText = '|' + '|'.repeat(dots);
+      dots = (dots + 1) % 1000; // Cycle through 0 to 3
+    }, 200); // Change the interval as needed
+  </script></div>
 </body>
+
 </html>
