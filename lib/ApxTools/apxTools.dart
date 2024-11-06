@@ -8,7 +8,7 @@ class apxTools extends StatelessWidget {
     return const Scaffold(
       body: Center(
         child: Text(
-          'Website Coming Soon!',
+          'Coming Soon!',
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
